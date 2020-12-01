@@ -11,7 +11,8 @@ class Main extends React.Component {
         this.state = {
             changeState : 'main',
             documents : '',
-            selectId : ''
+            selectId : '',
+            userName : ''
         }
 
         this.onChangeState = this.onChangeState.bind(this);
@@ -22,7 +23,7 @@ class Main extends React.Component {
 
             axios.get("http://localhost:8080/")
                 .then( (res) => {
-                    this.setState({ documents : res.data});
+                    //this.setState({ documents : res.data});
             });
 
 
@@ -34,7 +35,8 @@ class Main extends React.Component {
 	componentDidMount(){
 		axios.get("http://localhost:8080/")
 			.then( (res) => {
-				this.setState({ documents : res.data});
+				//this.setState({ documents : res.data});
+				console.log( res.data);
 		});
 	}
 
@@ -46,6 +48,16 @@ class Main extends React.Component {
                         <Button type="button" className="mb-2 document-input-page-btn" onClick={(event) => {this.onChangeState('create')}}>
                             글 등록
                         </Button>
+                        {
+                        this.state.userName === '' ?
+                            <a href="http://localhost:8080/oauth2/authorization/google" role="button">Google Login</a>
+                        :
+                            <div>
+                            <span>Logged in as : </span>
+                            <span id="user">{this.state.userName}</span>
+                            <a href="/logout" role="button">Logout</a>
+                            </div>
+                        }
                         <div className="document-main contents-main">
                             {
                                 this.state.documents.length === 0?

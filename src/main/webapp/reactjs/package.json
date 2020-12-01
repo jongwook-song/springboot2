@@ -11,7 +11,7 @@
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.0",
     "react-dom": "^17.0.1",
-    "react-scripts": "4.0.0",
+    "react-scripts-cssmodules": "^1.1.50",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
@@ -26,6 +26,7 @@
       "react-app/jest"
     ]
   },
+  "proxy": "http://localhost:8080",
   "browserslist": {
     "production": [
       ">0.2%",
