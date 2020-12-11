@@ -12,7 +12,8 @@ class Main extends React.Component {
             changeState : 'main',
             documents : '',
             selectId : '',
-            userName : ''
+            userName : '',
+            userEmail : ''
         }
 
         this.onChangeState = this.onChangeState.bind(this);
@@ -21,9 +22,9 @@ class Main extends React.Component {
     onChangeState = (status) => {
         this.setState({ changeState : status});
 
-            axios.get("http://localhost:8080/")
+            axios.get("/main")
                 .then( (res) => {
-                    //this.setState({ documents : res.data});
+                    this.setState({ documents : res.data.list});
             });
 
 
@@ -33,10 +34,13 @@ class Main extends React.Component {
     }
 
 	componentDidMount(){
-		axios.get("http://localhost:8080/")
+		axios.get("/main")
 			.then( (res) => {
-				//this.setState({ documents : res.data});
-				console.log( res.data);
+				this.setState({ documents : res.data.list});
+                if( res.data.user != undefined){
+                    this.setState({ userName : res.data.user.name,
+                                    userEmail : res.data.user.email});
+                }
 		});
 	}
 
@@ -50,12 +54,15 @@ class Main extends React.Component {
                         </Button>
                         {
                         this.state.userName === '' ?
-                            <a href="http://localhost:8080/oauth2/authorization/google" role="button">Google Login</a>
+                            <div>
+                                <a href="http://localhost:8080/oauth2/authorization/google" role="button">Google Login</a>
+                                <a href="http://localhost:8080/oauth2/authorization/naver" role="button">Naver Login</a>
+                            </div>
                         :
                             <div>
                             <span>Logged in as : </span>
                             <span id="user">{this.state.userName}</span>
-                            <a href="/logout" role="button">Logout</a>
+                            <a href="http://localhost:8080/logout" role="button">Logout</a>
                             </div>
                         }
                         <div className="document-main contents-main">
