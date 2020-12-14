@@ -55,14 +55,14 @@ class Main extends React.Component {
                         {
                         this.state.userName === '' ?
                             <div>
-                                <a href="http://localhost:8080/oauth2/authorization/google" role="button">Google Login</a>
-                                <a href="http://localhost:8080/oauth2/authorization/naver" role="button">Naver Login</a>
+                                <a href="http://ec2-3-36-7-213.ap-northeast-2.compute.amazonaws.com:8080/oauth2/authorization/google" role="button">Google Login</a>
+                                <a href="http://ec2-3-36-7-213.ap-northeast-2.compute.amazonaws.com:8080/oauth2/authorization/naver" role="button">Naver Login</a>
                             </div>
                         :
                             <div>
                             <span>Logged in as : </span>
                             <span id="user">{this.state.userName}</span>
-                            <a href="http://localhost:8080/logout" role="button">Logout</a>
+                            <a href="http://ec2-3-36-7-213.ap-northeast-2.compute.amazonaws.com:8080/logout" role="button">Logout</a>
                             </div>
                         }
                         <div className="document-main contents-main">

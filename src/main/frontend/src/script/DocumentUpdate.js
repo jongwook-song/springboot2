@@ -24,7 +24,7 @@ class DocumentUpdate extends React.Component {
     }
 
     onDeleteDocument = (status) => {
-        axios.delete("http://localhost:8080/api/v1/posts/"+this.props.id)
+        axios.delete("http://ec2-3-36-7-213.ap-northeast-2.compute.amazonaws.com:8080/api/v1/posts/"+this.props.id)
             .then(response => {
             alert('글이 삭제되었습니다.');
                 this.props.onChangeState( status);
@@ -45,7 +45,7 @@ class DocumentUpdate extends React.Component {
     	    "content" : this.state.content
     	}
 
-        axios.put("http://localhost:8080/api/v1/posts/"+this.props.id, posts)
+        axios.put("http://ec2-3-36-7-213.ap-northeast-2.compute.amazonaws.com/api/v1/posts/"+this.props.id, posts)
             .then(response => {
             alert('글이 수정되었습니다.');
                 this.props.onChangeState( status);
@@ -55,7 +55,7 @@ class DocumentUpdate extends React.Component {
             });
     };
     componentDidMount(){
-       axios.get("http://localhost:8080/posts/update/"+this.props.id)
+       axios.get("http://ec2-3-36-7-213.ap-northeast-2.compute.amazonaws.com:8080/posts/update/"+this.props.id)
             .then( (res) => {
                 this.setState({ title : res.data.title,
                                 content : res.data.content,

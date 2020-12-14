@@ -30,7 +30,7 @@ class DocumentCreate extends React.Component {
     	    "content" : this.state.content
     	}
 
-        axios.post("http://localhost:8080/api/v1/posts", posts)
+        axios.post("http://ec2-3-36-7-213.ap-northeast-2.compute.amazonaws.com:8080/api/v1/posts", posts)
             .then(response => {
             alert('글이 등록되었습니다.');
                 this.props.onChangeState( 'main');
