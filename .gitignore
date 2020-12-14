@@ -4,7 +4,5 @@
 
 /src/main/resources/application-oauth.properties
 
-build
 out
 /src/main/resources/application-real-db.properties
-/build/
