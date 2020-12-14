@@ -2,7 +2,7 @@
 .gradle
 .idea
 
-/src/main/resources/application-real-oauth.properties
+/src/main/resources/application-oauth.properties
 
 build
 out
