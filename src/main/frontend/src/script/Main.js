@@ -37,7 +37,7 @@ class Main extends React.Component {
 		axios.get("/main")
 			.then( (res) => {
 				this.setState({ documents : res.data.list});
-                if( res.data.user != undefined){
+                if( res.data.user !== undefined){
                     this.setState({ userName : res.data.user.name,
                                     userEmail : res.data.user.email});
                 }
