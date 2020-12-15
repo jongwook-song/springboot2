@@ -1,25 +1,26 @@
-  language: java
-    jdk:
-      - openjdk8
-    node_js: "0.10"
-    install: "npm install"
+language: java
+jdk:
+  - openjdk8
 
-    branches:
-      only:
-        - master
+node_js: "0.10"
+install: "npm install"
 
-    # Travis CI 서버의 Home
-    cache:
-      directories:
-        - '$HOME/.m2/repository'
-        - '$HOME/.gradle'
+branches:
+  only:
+    - master
 
-    script:
-        - "npm test"
-        - "./gradlew clean build"
+# Travis CI 서버의 Home
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.gradle'
 
-  # CI 실행 완료시 메일로 알람
-  notifications:
-    email:
-      recipients:
-        - jssongjk637@gmail.com
+script:
+    - "npm test"
+    - "./gradlew clean build"
+
+# CI 실행 완료시 메일로 알람
+notifications:
+email:
+  recipients:
+    - jssongjk637@gmail.com
