@@ -7,8 +7,8 @@ jods:
     -language: node_js
     node_js: 12
     before_script:
-      - "npm install"
-      - "npm run build"
+      - "npm install --prefix ./src/main/frontend/"
+      - "npm run build --prefix ./src/main/frontend/"
 
 branches:
   only:
