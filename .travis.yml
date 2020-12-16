@@ -3,7 +3,7 @@ jdk:
   - openjdk8
 
 node_js: "0.10"
-install: "npm install"
+install: "npm install --prefix ./src/main/frontend/"
 
 branches:
   only:
