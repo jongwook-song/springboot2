@@ -2,9 +2,6 @@ language: java
 jdk:
   - openjdk8
 
-node_js: "0.10"
-install: "npm install --prefix ./src/main/frontend/"
-
 branches:
   only:
     - master
@@ -16,7 +13,6 @@ cache:
     - '$HOME/.gradle'
 
 script:
-    - "npm run build --prefix ./src/main/frontend/"
     - "./gradlew clean build"
 
 # CI 실행 완료시 메일로 알람
