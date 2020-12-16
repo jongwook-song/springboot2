@@ -51,6 +51,7 @@ processResources {
 
 task buildReact(type: Exec) {
     dependsOn "installReact"
+    println( "$webappDir")
     workingDir "$webappDir"
     inputs.dir "$webappDir"
     group = BasePlugin.BUILD_GROUP
@@ -64,6 +65,7 @@ task buildReact(type: Exec) {
 task installReact(type: Exec) {
     workingDir "$webappDir"
     inputs.dir "$webappDir"
+    println( "$webappDir")
     group = BasePlugin.BUILD_GROUP
     if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
         commandLine "npm.cmd", "audit", "fix"
