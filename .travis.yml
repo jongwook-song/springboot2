@@ -2,6 +2,14 @@ language: java
 jdk:
   - openjdk8
 
+jods:
+  include:
+    -language: node_js
+    node_js: 12
+    before_script:
+      - "npm install"
+      - "npm run build"
+
 branches:
   only:
     - master
