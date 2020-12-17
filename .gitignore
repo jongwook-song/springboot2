@@ -3,7 +3,5 @@
 .idea
 
 /src/main/resources/application-oauth.properties
-
-out
 /src/main/resources/application-real-db.properties
 /build/
